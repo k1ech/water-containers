@@ -2,8 +2,8 @@ package pl.kurs.models;
 
 public class WaterContainer {
 
-    private String name;
-    private double maxCapacity;
+    private final String name;
+    private final double maxCapacity;
     private double waterAmount;
 
     public WaterContainer(String name, double maxCapacity, double waterAmount) {
@@ -31,14 +31,6 @@ public class WaterContainer {
 
     public double getWaterAmount() {
         return waterAmount;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setMaxCapacity(double maxCapacity) {
-        this.maxCapacity = maxCapacity;
     }
 
     public void setWaterAmount(double waterAmount) {
