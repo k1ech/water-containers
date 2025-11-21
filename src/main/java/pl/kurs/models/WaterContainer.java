@@ -21,6 +21,8 @@ public class WaterContainer {
         this.waterAmount = waterAmount;
     }
 
+
+
     public String getName() {
         return name;
     }
@@ -35,6 +37,18 @@ public class WaterContainer {
 
     public void setWaterAmount(double waterAmount) {
         this.waterAmount = waterAmount;
+    }
+
+    public void addWater(double value) {
+
+        if(value <= 0) {
+            System.out.println("Błędna ilośc wody do dodania");
+        } else if(waterAmount + value > maxCapacity) {
+            System.out.println("Nie zmieści się tyle wody");
+        } else {
+            waterAmount+=value;
+        }
+
     }
 
     @Override
