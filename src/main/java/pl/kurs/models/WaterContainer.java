@@ -22,7 +22,6 @@ public class WaterContainer {
     }
 
 
-
     public String getName() {
         return name;
     }
@@ -41,14 +40,24 @@ public class WaterContainer {
 
     public void addWater(double value) {
 
-        if(value <= 0) {
+        if (value <= 0) {
             System.out.println("Błędna ilośc wody do dodania");
-        } else if(waterAmount + value > maxCapacity) {
+        } else if (waterAmount + value > maxCapacity) {
             System.out.println("Nie zmieści się tyle wody");
         } else {
-            waterAmount+=value;
+            waterAmount += value;
         }
+    }
 
+    public void subtractWater(double value) {
+
+        if (value <= 0) {
+            System.out.println("Błędna ilośc wody do dodania");
+        } else if (waterAmount - value < 0) {
+            System.out.println("Nie można odjąć tyle wody");
+        } else {
+            waterAmount -= value;
+        }
     }
 
     @Override
