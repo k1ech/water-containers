@@ -37,6 +37,47 @@ public class WaterContainer {
         this.waterAmount = waterAmount;
     }
 
+    public void addWater(double value) {
+        if (value <= 0) {
+            System.out.println("Błędna ilośc wody do dodania");
+        } else if (!addIsPossible(value)) {
+            System.out.println("Nie zmieści się tyle wody");
+        } else {
+            waterAmount += value;
+        }
+    }
+
+    public void subtractWater(double value) {
+        if (value <= 0) {
+            System.out.println("Błędna ilośc wody do dodania");
+        } else if (!subtractIsPossible(value)) {
+            System.out.println("Nie można odjąć tyle wody");
+        } else {
+            waterAmount -= value;
+        }
+    }
+
+    public void pourWater(WaterContainer sourceContainer, double value) {
+        if (sourceContainer == null) {
+            System.out.println("Nie wskazano zbiornika źródłowego");
+        } else if (value <= 0) {
+            System.out.println("Błędna ilość do przelania");
+        } else if (!sourceContainer.subtractIsPossible(value) || !this.addIsPossible(value)) {
+            System.out.println("Operacja niemożliwa do zrealizowania");
+        } else {
+            sourceContainer.waterAmount -= value;
+            waterAmount += value;
+        }
+    }
+
+    private boolean addIsPossible(double value) {
+        return waterAmount + value <= maxCapacity;
+    }
+
+    private boolean subtractIsPossible(double value) {
+        return waterAmount - value >= 0;
+    }
+
     @Override
     public String toString() {
         return "WaterContainer{" +
