@@ -21,7 +21,6 @@ public class WaterContainer {
         this.waterAmount = waterAmount;
     }
 
-
     public String getName() {
         return name;
     }
@@ -39,7 +38,6 @@ public class WaterContainer {
     }
 
     public void addWater(double value) {
-
         if (value <= 0) {
             System.out.println("Błędna ilośc wody do dodania");
         } else if (!addIsPossible(value)) {
@@ -50,7 +48,6 @@ public class WaterContainer {
     }
 
     public void subtractWater(double value) {
-
         if (value <= 0) {
             System.out.println("Błędna ilośc wody do dodania");
         } else if (!subtractIsPossible(value)) {
@@ -58,12 +55,9 @@ public class WaterContainer {
         } else {
             waterAmount -= value;
         }
-
     }
 
-
     public void pourWater(WaterContainer sourceContainer, double value) {
-
         if (sourceContainer == null) {
             System.out.println("Nie wskazano zbiornika źródłowego");
         } else if (value <= 0) {
@@ -83,7 +77,6 @@ public class WaterContainer {
     private boolean subtractIsPossible(double value) {
         return waterAmount - value >= 0;
     }
-
 
     @Override
     public String toString() {
